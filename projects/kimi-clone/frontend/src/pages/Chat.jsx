@@ -164,7 +164,7 @@ function Chat() {
             <button className="flex items-center gap-3 w-full px-3 py-2 rounded-lg
               hover:bg-kimi-hover transition-colors"
             >
-              <Info className="w-4 h-4" /
+              <Info className="w-4 h-4" />
               <span className="text-sm">About Us</span>
             </button>
 
