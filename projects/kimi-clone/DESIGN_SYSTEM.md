@@ -1,154 +1,171 @@
-# Kimi Design System (จากนายท่านวิเคราะห์)
+# Kimi Design System (จาก CSS จริง @ statics.moonshot.cn)
 
 **วันที่:** 2026-03-02  
-**แหล่งที่มา:** นายท่านวิเคราะห์จาก kimi.com โดยตรง
+**แหล่งที่มา:** CSS Production จาก `https://statics.moonshot.cn/kimi-pwa/chatbot/builtin/static/css/common-BEHOL4rh.css`
 
 ---
 
-## Color Palette
+## CSS Variables หลัก (จาก `:root.dark`)
 
-### Primary Colors
-| สี | Hex | ใช้ที่ไหน |
-|-----|-----|----------|
-| Brand Blue | `#2563eb` | Primary buttons, links, interactive |
-| Dark Navy | `#0f172a` | Primary text (headings) |
-| Pure White | `#ffffff` | Background, cards |
+### Background Colors
+| Variable | Hex | RGBA | ใช้ที่ไหน |
+|----------|-----|------|----------|
+| `--Bg-Primary` | `#000000` | `rgba(0,0,0,1)` | พื้นหลังหลักสุด (pure black) |
+| `--Bg-Secondary` | `#0d0d0d` | `rgba(13,13,13,1)` | Sidebar, secondary areas |
+| `--Bg-Tertiary` | `#1a1a1a` | `rgba(26,26,26,1)` | Input boxes, cards, elevated surfaces |
+| `--Bg-Tertiary-Hover` | `#262626` | - | Hover state บน tertiary |
 
-### Neutral Scale (Gray)
-| Token | Hex | ใช้ที่ไหน |
-|-------|-----|----------|
-| Gray 50 | `#f8fafc` | Page background |
-| Gray 100 | `#f1f5f9` | Subtle backgrounds, hover |
-| Gray 200 | `#e2e8f0` | Borders, dividers |
-| Gray 400 | `#94a3b8` | Secondary text, placeholders |
-| Gray 600 | `#475569` | Body text |
-| Gray 900 | `#0f172a` | Primary text |
+### Label/Text Colors
+| Variable | Hex | ใช้ที่ไหน |
+|----------|-----|----------|
+| `--Labels-Primary` | `#ffffff` | ข้อความหลัก (white) |
+| `--Labels-Secondary` | `#b4b4b4` | ข้อความรอง (light gray) |
+| `--Labels-Tertiary` | `#6b6b6b` | Placeholder, disabled text |
 
-### Semantic Colors
-| สี | Hex | ใช้ที่ไหน |
-|-----|-----|----------|
-| Success Green | `#10b981` | Positive actions |
-| Warning Amber | `#f59e0b` | Alerts, cautions |
-| Error Red | `#ef4444` | Error states |
+### Separator/Border Colors
+| Variable | Hex | ใช้ที่ไหน |
+|----------|-----|----------|
+| `--Separators-S1` | `#2d2d2d` | เส้นแบ่งหลัก, input borders |
+| `--Separators-S2` | `#404040` | Subtle dividers |
+| `--Separators-S3` | `#1a1a1a` | Very subtle separators |
+
+### Fill Colors (Buttons, Hover States)
+| Variable | Hex | ใช้ที่ไหน |
+|----------|-----|----------|
+| `--Fills-F1` | `#262626` | Primary button bg, hover |
+| `--Fills-F2` | `#333333` | Secondary fill |
+| `--Fills-F3` | `#404040` | Tertiary fill |
+| `--Fills-Primary` | `#1a1a1a` | Button backgrounds |
+
+### Accent Colors (Kimi Blue)
+| Variable | Hex | ใช้ที่ไหน |
+|----------|-----|----------|
+| `--Colors-KMBlue` | `#2563eb` | Primary accent, links |
+| `--Colors-KMBlue-Hover` | `#1d4ed8` | Blue hover state |
+
+### Message Colors
+| Variable | Hex | ใช้ที่ไหน |
+|----------|-----|----------|
+| `--Message-Bubble-Bg` | `#1a1a1a` | Assistant message bubble |
+| `--Message-Bubble-User` | `#333333` | User message bubble |
 
 ---
 
 ## Typography System
 
 ### Font Family
-- **Primary:** Inter (system-ui fallback)
-- **Monospace:** JetBrains Mono (code)
+```css
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+```
 
-### Type Scale
-| Level | Size | Weight | Line Height | Usage |
-|-------|------|--------|-------------|-------|
-| Hero | 72px (4.5rem) | 700 | 1.1 | Main headline |
-| H1 | 48px (3rem) | 700 | 1.2 | Page titles |
-| H2 | 36px (2.25rem) | 600 | 1.25 | Section headers |
-| H3 | 24px (1.5rem) | 600 | 1.3 | Card titles |
-| H4 | 20px (1.25rem) | 600 | 1.4 | Subsection |
-| Body Large | 18px (1.125rem) | 400 | 1.6 | Lead paragraphs |
-| Body | 16px (1rem) | 400 | 1.6 | Standard text |
-| Small | 14px (0.875rem) | 400 | 1.5 | Captions |
-| Tiny | 12px (0.75rem) | 500 | 1.4 | Labels, badges |
+### Type Scale (จาก CSS)
+| Class | Size | Weight | Line Height |
+|-------|------|--------|-------------|
+| Hero (KIMI logo) | 72px | 700 | 1.0 |
+| H1 | 24px | 600 | 1.3 |
+| H2 | 20px | 600 | 1.4 |
+| Body | 16px | 400 | 1.5 |
+| Small | 14px | 400 | 1.5 |
+| Tiny | 12px | 400 | 1.4 |
 
 ---
 
 ## Spacing System
 
-### Base Unit: 4px
-| Token | Value | Usage |
-|-------|-------|-------|
-| space-1 | 4px | Tight gaps |
-| space-2 | 8px | Inline spacing |
-| space-3 | 12px | Button padding |
-| space-4 | 16px | Standard padding |
-| space-6 | 24px | Card padding |
-| space-8 | 32px | Large spacing |
-| space-12 | 48px | Section padding |
-| space-16 | 64px | Major dividers |
-| space-24 | 96px | Hero spacing |
-
 ### Layout
-- Container max-width: **1280px**
-- Container padding: **24px (mobile)** → **48px (desktop)**
-- Grid gap: **24px** standard, **32px** feature grids
+| Element | Value |
+|---------|-------|
+| Sidebar width | 260px |
+| Header height | 56px |
+| Input min-height | 56px |
+| Border radius (sm) | 8px |
+| Border radius (md) | 12px |
+| Border radius (lg) | 16px |
+| Border radius (full) | 9999px |
 
----
-
-## Grid System
-
-- **12-column grid** with 24px gutters
-- Breakpoints:
-  - Mobile: < 640px
-  - Tablet: 640px - 1024px
-  - Desktop: 1024px - 1280px
-  - Wide: > 1280px
+### Component Spacing
+| Token | Value |
+|-------|-------|
+| space-1 | 4px |
+| space-2 | 8px |
+| space-3 | 12px |
+| space-4 | 16px |
+| space-6 | 24px |
 
 ---
 
 ## Component Patterns
 
-### Cards
-- Background: White (`#ffffff`)
-- Border-radius: 16px (large), 12px (medium), 8px (small)
-- Shadow: `0 1px 3px rgba(0,0,0,0.1)`
-- Padding: 24px standard
+### Sidebar
+- Background: `--Bg-Secondary` (`#0d0d0d`)
+- Border-right: `--Separators-S1` (`#2d2d2d`)
+- Width: 260px
+- Item hover: `--Fills-F1` (`#262626`)
+
+### Input Box (Main Chat)
+- Background: `--Bg-Tertiary` (`#1a1a1a`)
+- Border: `--Separators-S1` (`#2d2d2d`)
+- Border-radius: 16px
+- Padding: 16px
+
+### Tool Pills
+- Background: `--Bg-Tertiary` (`#1a1a1a`)
+- Border: `--Separators-S1` (`#2d2d2d`)
+- Border-radius: 9999px (full)
+- Hover: Border เปลี่ยนเป็น `--Separators-S2`
 
 ### Buttons
-| Type | Style |
-|------|-------|
-| Primary | Blue bg, white text, 8px 16px padding, 8px radius |
-| Secondary | Transparent, blue border, blue text |
-| Ghost | No bg, blue text, hover light blue |
-
-### Inputs
-- Height: 44px
-- Border: 1px solid Gray-200
+- Primary: `--Fills-F1` bg, white text
+- Secondary: Transparent, border `--Separators-S1`
 - Border-radius: 8px
-- Focus: Blue ring (2px offset)
 
----
-
-## Visual Language
-
-### Elevation & Depth
-| Level | Shadow | Usage |
-|-------|--------|-------|
-| Level 1 | `0 1px 2px rgba(0,0,0,0.05)` | Subtle cards |
-| Level 2 | `0 4px 6px -1px rgba(0,0,0,0.1)` | Dropdowns |
-| Level 3 | `0 10px 15px -3px rgba(0,0,0,0.1)` | Modals |
-
-### Border Radius Scale
-| Token | Value | Usage |
-|-------|-------|-------|
-| rounded-sm | 4px | Buttons, inputs |
-| rounded-md | 8px | Cards, containers |
-| rounded-lg | 12px | Feature cards |
-| rounded-xl | 16px | Modals, large cards |
-| rounded-full | 9999px | Pills, avatars |
-
----
-
-## Animation Principles
-
-- **Duration:** 200ms (fast), 300ms (normal), 500ms (slow)
-- **Easing:** `cubic-bezier(0.4, 0, 0.2, 1)` (ease-out)
-- **Transitions:** Color, transform, opacity, box-shadow
+### Messages
+- User bubble: `--Message-Bubble-User` (`#333333`)
+- Assistant bubble: `--Message-Bubble-Bg` (`#1a1a1a`)
+- Border: `--Separators-S1` สำหรับ assistant
 
 ---
 
 ## Key Design Characteristics
 
-1. **Clean & Minimal** - Generous whitespace
-2. **Trustworthy Blue** - Primary blue conveys reliability
-3. **Rounded & Friendly** - 8-16px border radius
-4. **Clear Hierarchy** - Strong contrast
-5. **Accessible** - WCAG AA compliant
-6. **Modern Glassmorphism** - Subtle transparency in nav
-
-**Aesthetic:** "Calm confidence" - professional but approachable
+1. **Deep Black Base** - พื้นหลัง `#000000` ทำให้ UI ดู premium
+2. **Subtle Gray Scale** - ระดับเทาที่ต่างกันนิดเดียว ดู refined
+3. **High Contrast Text** - ขาวบนดำ ชัดเจน
+4. **Minimal Borders** - ใช้ `#2d2d2d` ที่มองแทบไม่ออก
+5. **Kimi Blue Accent** - `#2563eb` ใช้น้อยแต่โดดเด่น
+6. **Generous Border Radius** - 12-16px ทำให้ดู modern
 
 ---
 
-*บันทึกโดย Kimi Claw สำหรับนายท่าน* ❤️‍🔥
+## CSS Mapping for Tailwind
+
+```javascript
+colors: {
+  'kimi-bg': {
+    primary: '#000000',
+    secondary: '#0d0d0d', 
+    tertiary: '#1a1a1a',
+    hover: '#262626',
+  },
+  'kimi-text': {
+    primary: '#ffffff',
+    secondary: '#b4b4b4',
+    tertiary: '#6b6b6b',
+  },
+  'kimi-border': {
+    DEFAULT: '#2d2d2d',
+    light: '#404040',
+  },
+  'kimi-fill': {
+    f1: '#262626',
+    f2: '#333333',
+    f3: '#404040',
+  },
+  'kimi-blue': '#2563eb',
+}
+```
+
+---
+
+*บันทึกโดย Kimi Claw สำหรับนายท่าน* ❤️‍🔥  
+*ข้อมูลจาก CSS จริงของ Kimi AI*
