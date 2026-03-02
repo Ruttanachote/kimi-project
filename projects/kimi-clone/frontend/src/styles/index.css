@@ -8,24 +8,109 @@
   }
   
   body {
-    @apply bg-kimi-darker text-kimi-text antialiased;
+    @apply bg-kimi-bg-primary text-kimi-text-primary antialiased;
+    font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
   }
 }
 
 @layer components {
+  /* Primary Button */
   .btn-primary {
-    @apply bg-kimi-primary hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-kimi-accent-blue hover:bg-kimi-accent-blue-hover text-white font-medium 
+           py-3 px-6 rounded-lg transition-all duration-200 
+           hover:scale-[1.02] active:scale-[0.98];
   }
   
+  /* Secondary Button */
   .btn-secondary {
-    @apply bg-kimi-card hover:bg-kimi-border text-kimi-text font-medium py-2 px-4 rounded-lg transition-colors border border-kimi-border;
+    @apply bg-transparent border border-kimi-border hover:bg-kimi-bg-secondary 
+           text-kimi-text-primary font-medium py-2 px-4 rounded-lg 
+           transition-all duration-200;
   }
   
+  /* Ghost Button */
+  .btn-ghost {
+    @apply bg-transparent text-kimi-text-secondary hover:bg-kimi-bg-secondary 
+           hover:text-kimi-text-primary px-3 py-2 rounded-lg 
+           transition-all duration-200;
+  }
+  
+  /* Standard Input */
   .input-field {
-    @apply bg-kimi-card border border-kimi-border rounded-lg px-4 py-2 text-kimi-text placeholder-kimi-text-muted focus:outline-none focus:border-kimi-primary transition-colors;
+    @apply bg-kimi-bg-secondary border border-kimi-border rounded-lg 
+           px-4 py-3 text-kimi-text-primary placeholder-kimi-text-muted 
+           focus:outline-none focus:border-kimi-accent-blue 
+           transition-colors duration-200;
   }
   
-  .card {
-    @apply bg-kimi-card border border-kimi-border rounded-xl p-6;
+  /* Chat Input (Pill shape) */
+  .input-chat {
+    @apply bg-kimi-bg-tertiary border-0 rounded-full
+           px-5 py-4 text-kimi-text-primary placeholder-kimi-text-muted 
+           focus:outline-none focus:ring-2 focus:ring-kimi-accent-blue/50
+           transition-all duration-200;
   }
+  
+  /* Card */
+  .card {
+    @apply bg-kimi-bg-secondary border border-kimi-border rounded-xl p-6
+           transition-all duration-200;
+  }
+  
+  .card-hover {
+    @apply hover:border-kimi-border-hover hover:-translate-y-0.5;
+  }
+  
+  /* Message Bubbles */
+  .message-user {
+    @apply bg-kimi-accent-blue text-white 
+           rounded-[18px_18px_4px_18px] max-w-[80%];
+  }
+  
+  .message-ai {
+    @apply bg-kimi-bg-secondary border border-kimi-border text-kimi-text-primary
+           rounded-[18px_18px_18px_4px] max-w-[90%];
+  }
+  
+  /* Sidebar Item */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg
+           text-kimi-text-secondary hover:bg-kimi-bg-tertiary hover:text-kimi-text-primary
+           transition-all duration-150 cursor-pointer;
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-kimi-accent-blue to-kimi-accent-purple 
+           bg-clip-text text-transparent;
+  }
+  
+  /* Gradient Background */
+  .bg-gradient-kimi {
+    @apply bg-gradient-to-br from-kimi-accent-blue to-kimi-accent-purple;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
 }
