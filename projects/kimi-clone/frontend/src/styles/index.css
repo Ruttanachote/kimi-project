@@ -8,74 +8,27 @@
   }
   
   body {
-    @apply bg-kimi-bg text-kimi-text antialiased;
-    font-family: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+    @apply bg-kimi-bg text-kimi-text-primary antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 }
 
 @layer components {
-  /* Primary Button */
-  .btn-primary {
-    @apply bg-kimi-primary hover:bg-kimi-primary-hover text-white font-medium 
-           py-3 px-6 rounded-lg transition-all duration-200 
-           hover:scale-[1.02] active:scale-[0.98];
-  }
-  
-  /* Secondary Button */
-  .btn-secondary {
-    @apply bg-transparent border border-kimi-border hover:bg-kimi-hover 
-           text-kimi-text font-medium py-2 px-4 rounded-lg 
-           transition-all duration-200;
-  }
-  
-  /* Ghost Button */
-  .btn-ghost {
-    @apply bg-transparent text-kimi-text-secondary hover:bg-kimi-hover 
-           hover:text-kimi-text px-3 py-2 rounded-lg 
-           transition-all duration-200;
-  }
-  
-  /* Standard Input */
-  .input-field {
-    @apply bg-kimi-card border border-kimi-border rounded-lg 
-           px-4 py-3 text-kimi-text placeholder-kimi-text-muted 
-           focus:outline-none focus:border-kimi-primary 
-           transition-colors duration-200;
-  }
-  
-  /* Card */
-  .card {
-    @apply bg-kimi-card border border-kimi-border rounded-xl p-6
-           transition-all duration-200;
-  }
-  
-  .card-hover {
-    @apply hover:border-kimi-primary hover:-translate-y-0.5;
-  }
-  
-  /* Sidebar Item */
   .sidebar-item {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg
-           text-kimi-text-secondary hover:bg-kimi-hover hover:text-kimi-text
-           transition-all duration-150 cursor-pointer;
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg
+           text-kimi-text-secondary hover:bg-kimi-bg-hover hover:text-kimi-text-primary
+           transition-colors cursor-pointer;
   }
   
-  /* Gradient Text */
-  .text-gradient {
-    @apply bg-gradient-to-r from-kimi-primary to-purple-600 
-           bg-clip-text text-transparent;
-  }
-  
-  /* Gradient Background */
-  .bg-gradient-kimi {
-    @apply bg-gradient-to-br from-kimi-primary to-purple-600;
+  .tool-badge {
+    @apply text-xs px-1.5 py-0.5 bg-orange-100 text-orange-600 rounded font-medium;
   }
 }
 
-/* Scrollbar Styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -84,14 +37,9 @@
 
 ::-webkit-scrollbar-thumb {
   background: #d1d5db;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
-}
-
-/* Selection */
-::selection {
-  background: rgba(59, 130, 246, 0.3);
 }
