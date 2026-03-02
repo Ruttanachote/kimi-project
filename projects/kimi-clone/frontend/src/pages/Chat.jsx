@@ -124,13 +124,13 @@ function Chat({ user }) {
         <div className="p-3 border-t border-kimi-border">
           <button className="sidebar-item w-full mb-1"
           >
-            <Settings className="w-4 h-4" /
+            <Settings className="w-4 h-4" />
             <span className="text-sm font-medium">Settings</span>
           </button>
           
           <Link to="/" className="sidebar-item w-full text-red-400 hover:text-red-300"
           >
-            <LogOut className="w-4 h-4" /
+            <LogOut className="w-4 h-4" />
             <span className="text-sm font-medium">Log out</span>
           </Link>
         </div>
