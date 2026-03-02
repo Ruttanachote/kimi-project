@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-kimi-darker text-kimi-text antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-kimi-primary hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-kimi-card hover:bg-kimi-border text-kimi-text font-medium py-2 px-4 rounded-lg transition-colors border border-kimi-border;
+  }
+  
+  .input-field {
+    @apply bg-kimi-card border border-kimi-border rounded-lg px-4 py-2 text-kimi-text placeholder-kimi-text-muted focus:outline-none focus:border-kimi-primary transition-colors;
+  }
+  
+  .card {
+    @apply bg-kimi-card border border-kimi-border rounded-xl p-6;
+  }
+}

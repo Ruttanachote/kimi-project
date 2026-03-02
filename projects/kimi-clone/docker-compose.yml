@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Frontend - React + Vite
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: kimi-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev -- --host
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Backend - Node.js/Express
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: kimi-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+      - JWT_SECRET=${JWT_SECRET:-your-secret-key-change-in-production}
+      - DATABASE_URL=sqlite:///app/data/kimi.db
+    restart: unless-stopped
+
+  # Nginx - Reverse proxy (สำหรับ production)
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: kimi-nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #   depends_on:
+  #     - frontend
+  #     - backend
+  #   restart: unless-stopped
+
+volumes:
+  node_modules_frontend:
+  node_modules_backend:
