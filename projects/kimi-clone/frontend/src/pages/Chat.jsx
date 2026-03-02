@@ -5,7 +5,6 @@ import {
   Languages, MessageCircle, Send, ChevronDown, Users
 } from 'lucide-react'
 
-// Sidebar items matching screenshot
 const sidebarItems = [
   { icon: Plus, label: 'New Chat', shortcut: 'Ctrl K', isButton: true },
   { icon: Globe, label: 'Websites' },
@@ -76,7 +75,7 @@ function Chat() {
 
   return (
     <div className="flex h-screen bg-white">
-      {/* Sidebar */}
+      {/* Sidebar - LIGHT THEME */}
       <aside className="w-[260px] flex-shrink-0 bg-white border-r border-gray-200 flex flex-col">
         {/* Logo */}
         <div className="p-4">
@@ -88,7 +87,7 @@ function Chat() {
         {/* New Chat Button */}
         <div className="px-3 mb-2">
           <button className="w-full flex items-center justify-between px-3 py-2.5 
-            border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors bg-white">
             <div className="flex items-center gap-2">
               <Plus className="w-4 h-4 text-gray-700" />
               <span className="text-sm font-medium text-gray-900">New Chat</span>
@@ -106,7 +105,8 @@ function Chat() {
             {sidebarItems.map((item) => (
               <button key={item.label} 
                 className="w-full flex items-center justify-between px-3 py-2 rounded-lg
-                  hover:bg-gray-50 transition-colors text-left">
+                  hover:bg-gray-50 transition-colors text-left bg-white"
+              >
                 <div className="flex items-center gap-3">
                   <item.icon className="w-4 h-4 text-gray-600" />
                   <span className="text-sm text-gray-700">{item.label}</span>
@@ -122,11 +122,12 @@ function Chat() {
         </div>
 
         {/* Bottom Items */}
-        <div className="p-3 border-t border-gray-200">
+        <div className="p-3 border-t border-gray-200 bg-white">
           <div className="space-y-0.5 mb-4">
             {bottomItems.map((item) => (
               <button key={item.label}
-                className="w-full flex flex-col px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-left">
+                className="w-full flex flex-col px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
+              >
                 <div className="flex items-center gap-3">
                   <item.icon className="w-4 h-4 text-gray-600" />
                   <span className="text-sm text-gray-700">{item.label}</span>
@@ -138,6 +139,12 @@ function Chat() {
             ))}
           </div>
 
+          {/* Mobile App */}
+          <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors mb-2">
+            <MessageCircle className="w-4 h-4 text-gray-600" />
+            <span className="text-sm text-gray-700">Mobile App</span>
+          </button>
+
           {/* Log In */}
           <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-500" />
@@ -146,22 +153,21 @@ function Chat() {
         </div>
       </aside>
 
-      {/* Main Content */}
+      {/* Main Content - LIGHT THEME */}
       <main className="flex-1 flex flex-col min-w-0 bg-white">
         {/* Header */}
-        <header className="h-14 flex items-center justify-end px-4">
-          {/* Empty header like screenshot */}
+        <header className="h-14 flex items-center justify-end px-4 bg-white">
         </header>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto bg-white">
           {messages.length === 0 ? (
             /* Empty State */
-            <div className="h-full flex flex-col items-center justify-center px-4 -mt-20">
+            <div className="h-full flex flex-col items-center justify-center px-4 -mt-20 bg-white">
               {/* KIMI Logo */}
               <h1 className="text-6xl font-bold text-black tracking-wider mb-8">KIMI</h1>
 
-              {/* Input Box */}
+              {/* Input Box - WHITE */}
               <div className="w-full max-w-2xl bg-white border border-gray-200 rounded-2xl shadow-sm">
                 <div className="p-4">
                   <textarea
@@ -184,11 +190,11 @@ function Chat() {
 
                 <div className="flex items-center justify-between px-4 pb-4">
                   <div className="flex items-center gap-2">
-                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200">
                       <Plus className="w-5 h-5 text-gray-500" />
                     </button>
                     <button className="flex items-center gap-2 px-3 py-1.5 
-                      bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                      bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors border border-gray-200">
                       <Sparkles className="w-4 h-4 text-gray-600" />
                       <span className="text-sm text-gray-700">Agent</span>
                     </button>
@@ -202,10 +208,11 @@ function Chat() {
                     <button 
                       onClick={handleSend}
                       disabled={!input.trim()}
-                      className="w-8 h-8 flex items-center justify-center rounded-full
-                        bg-gray-200 text-gray-400 hover:bg-gray-300 
-                        disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
-                      <Send className="w-4 h-4" />
+                      className="w-10 h-10 flex items-center justify-center rounded-full
+                        bg-gray-200 text-gray-600 hover:bg-gray-300 
+                        disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <Send className="w-5 h-5" />
                     </button>
                   </div>
                 </div>
@@ -216,7 +223,8 @@ function Chat() {
                 {toolPills.map((tool) => (
                   <button key={tool.label}
                     className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 
-                      rounded-full hover:border-gray-300 hover:shadow-sm transition-all">
+                      rounded-full hover:border-gray-300 hover:shadow-sm transition-all"
+                  >
                     <tool.icon className="w-4 h-4 text-gray-500" />
                     <span className="text-sm text-gray-700">{tool.label}</span>
                     {tool.badge && (
@@ -230,13 +238,14 @@ function Chat() {
             </div>
           ) : (
             /* Messages */
-            <div className="max-w-3xl mx-auto p-4 space-y-6">
+            <div className="max-w-3xl mx-auto p-4 space-y-6 bg-white">
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0
                     ${msg.role === 'assistant' 
                       ? 'bg-black' 
-                      : 'bg-gray-800'}`}>
+                      : 'bg-gray-800'}`}
+                  >
                     <span className="text-white text-sm font-bold">
                       {msg.role === 'assistant' ? 'K' : 'น'}
                     </span>
@@ -247,7 +256,8 @@ function Chat() {
                       ${msg.role === 'user'
                         ? 'bg-gray-800 text-white'
                         : 'bg-gray-100 text-gray-900'
-                      }`}>
+                      }`}
+                    >
                       <div className="whitespace-pre-wrap">{msg.content}</div>
                     </div>
                   </div>
